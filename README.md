@@ -1,6 +1,8 @@
 TuesdayLesson
 =============
 
+![alt tag] (Lesson2-walkthrough.gif)
+
 Hours Spent - 12-15 hrs
 
 Completed Required Stories
