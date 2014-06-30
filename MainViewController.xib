@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
+                <outlet property="helpButton" destination="ria-d2-iTv" id="Gc7-t4-aOM"/>
                 <outlet property="indicatorView" destination="lOL-0W-1q0" id="894-b3-hXy"/>
                 <outlet property="inputFieldView" destination="trk-lw-oN7" id="kmk-v4-OA9"/>
                 <outlet property="loginButton" destination="4sT-F7-g1C" id="PbO-t3-9GL"/>
@@ -105,7 +106,7 @@
             </subviews>
             <color key="backgroundColor" red="0.30077583881666581" green="0.4255235634228462" blue="0.66697080291970812" alpha="1" colorSpace="deviceRGB"/>
             <gestureRecognizers/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outletCollection property="gestureRecognizers" destination="Bqg-Vx-EJc" appends="YES" id="y2H-lV-bLj"/>

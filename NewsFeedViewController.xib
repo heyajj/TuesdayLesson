@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsFeedViewController">
             <connections>
+                <outlet property="newsfeedActivityIndicator" destination="CA2-nD-PSk" id="XyA-nS-XGZ"/>
                 <outlet property="newsfeedScrollView" destination="X72-Bo-ubK" id="brp-6h-iv7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="mNa-Go-BTE"/>
             </connections>
@@ -15,12 +16,16 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="CA2-nD-PSk">
+                    <rect key="frame" x="150" y="274" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" id="X72-Bo-ubK">
-                    <rect key="frame" x="0.0" y="48" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="108" width="320" height="510"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_feed" id="PiU-6p-zyz">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="1021"/>
+                        <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_feed" id="PiU-6p-zyz">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="962"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                     </subviews>
@@ -36,7 +41,7 @@
         </view>
     </objects>
     <resources>
-        <image name="home_feed" width="640" height="2050"/>
+        <image name="home_feed" width="320" height="1025"/>
         <image name="status_bar" width="640" height="90"/>
     </resources>
 </document>

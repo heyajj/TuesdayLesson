@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIView *logoView;
 @property (weak, nonatomic) IBOutlet UIView *loginView;
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
+@property (weak, nonatomic) IBOutlet UIButton *helpButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 
@@ -57,6 +58,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
     
+    [self setNeedsStatusBarAppearanceUpdate];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,6 +76,7 @@
     self.userNameField.enabled = NO;
     self.pwdField.enabled = NO;
     self.signUpButton.alpha=.75;
+    self.helpButton.alpha=.75;
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"logging_in_button"] forState:UIControlStateDisabled];
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"logging_in_button"] forState:UIControlStateNormal];
     
@@ -121,10 +125,7 @@
     UIViewController *settingsVC = [[SettingsViewController alloc] init];
     
     
-    //Import the Navigation Bars
-    UINavigationController *newsfeedNC = [[UINavigationController alloc] initWithRootViewController:newsfeedVC];
-    newsfeedNC.navigationBar.barTintColor = UIColorFromRGB(0x3d5998);
-    newsfeedNC.navigationBar.tintColor = [UIColor whiteColor];
+    //Style the nav bars
     NSShadow *shadow = [[NSShadow alloc] init];
     NSDictionary *titleTextAttributes =
     @{
@@ -133,11 +134,47 @@
       NSShadowAttributeName : shadow
       };
     
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    
+    //Import the Navigation Bars
+    UINavigationController *newsfeedNC = [[UINavigationController alloc] initWithRootViewController:newsfeedVC];
+    newsfeedNC.navigationBar.barTintColor = UIColorFromRGB(0x3d5998);
+    newsfeedNC.navigationBar.tintColor = [UIColor whiteColor];
+    
     newsfeedNC.navigationBar.titleTextAttributes = titleTextAttributes;
-    //UINavigationController *requestsNC = [[UINavigationController alloc] initWithRootViewController:requestsVC];
- 
-    //UINavigationController *notificationsNC = [[UINavigationController alloc] initWithRootViewController:notificationsVC];
-    //UINavigationController *settingsNC = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    
+    
+    
+    UINavigationController *messagesNC = [[UINavigationController alloc] initWithRootViewController:messagesVC];
+    messagesNC.navigationBar.barTintColor = UIColorFromRGB(0x3d5998);
+    messagesNC.navigationBar.tintColor = [UIColor whiteColor];
+   
+    messagesNC.navigationBar.titleTextAttributes = titleTextAttributes;
+
+    
+    
+    UINavigationController *requestsNC = [[UINavigationController alloc] initWithRootViewController:requestsVC];
+    requestsNC.navigationBar.barTintColor = UIColorFromRGB(0x3d5998);
+    requestsNC.navigationBar.tintColor = [UIColor whiteColor];
+    
+    requestsNC.navigationBar.titleTextAttributes = titleTextAttributes;
+    
+    
+    
+    UINavigationController *notificationsNC = [[UINavigationController alloc] initWithRootViewController:notificationsVC];
+    notificationsNC.navigationBar.barTintColor = UIColorFromRGB(0x3d5998);
+    notificationsNC.navigationBar.tintColor = [UIColor whiteColor];
+    
+    notificationsNC.navigationBar.titleTextAttributes = titleTextAttributes;
+    
+    
+    
+    UINavigationController *settingsNC = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    settingsNC.navigationBar.barTintColor = UIColorFromRGB(0x3d5998);
+    settingsNC.navigationBar.tintColor = [UIColor whiteColor];
+    
+    settingsNC.navigationBar.titleTextAttributes = titleTextAttributes;
+    
     
     
     //Tab Bar Titles and Custom Images
@@ -168,7 +205,7 @@
     
     // Create the tab bar controller
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[newsfeedNC, requestsVC, messagesVC, notificationsVC, settingsVC];
+    tabBarController.viewControllers = @[newsfeedNC, requestsNC, messagesNC, notificationsNC, settingsNC];
     
     [self presentViewController:tabBarController animated:YES completion:nil];
 
@@ -182,6 +219,7 @@
     self.userNameField.enabled = YES;
     self.pwdField.enabled = YES;
     self.signUpButton.alpha =1;
+    self.helpButton.alpha=1;
     self.loginView.alpha =1;
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login_button_disabled"] forState:UIControlStateDisabled];
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login_button_disabled"] forState:UIControlStateNormal];
@@ -217,8 +255,15 @@
                          CGRect labelFrame = self.signUpButton.frame;
                          labelFrame.origin.y -= 154;
                          self.signUpButton.frame = labelFrame;
+                         
+                         //CGRect buttonFrame = self.helpButton.frame;
+                         //buttonFrame.origin.y -= 180;
+                         //self.helpButton.frame = labelFrame;
+                         
                      }
                      completion:nil
+     
+     
      ];
     
 }
@@ -249,7 +294,13 @@
                          CGRect labelFrame = self.signUpButton.frame;
                          labelFrame.origin.y += 154;
                          self.signUpButton.frame = labelFrame;
-                     } completion:nil ];
+                         
+                         //CGRect buttonFrame = self.helpButton.frame;
+                         //buttonFrame.origin.y += 180;
+                         //self.helpButton.frame = labelFrame;
+                         
+                     }
+                     completion:nil ];
     
 }
 
