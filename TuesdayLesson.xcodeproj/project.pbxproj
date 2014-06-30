@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E260D6DB1960A8650029F3A5 /* NewsFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E260D6D91960A8650029F3A5 /* NewsFeedViewController.m */; };
+		E260D6DC1960A8650029F3A5 /* NewsFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E260D6DA1960A8650029F3A5 /* NewsFeedViewController.xib */; };
+		E260D6E01960A87F0029F3A5 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E260D6DE1960A87F0029F3A5 /* MessagesViewController.m */; };
+		E260D6E11960A87F0029F3A5 /* MessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E260D6DF1960A87F0029F3A5 /* MessagesViewController.xib */; };
+		E260D6E51960A8910029F3A5 /* RequestsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E260D6E31960A8910029F3A5 /* RequestsViewController.m */; };
+		E260D6E61960A8910029F3A5 /* RequestsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E260D6E41960A8910029F3A5 /* RequestsViewController.xib */; };
+		E260D6EA1960A8D30029F3A5 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E260D6E81960A8D30029F3A5 /* NotificationsViewController.m */; };
+		E260D6EB1960A8D30029F3A5 /* NotificationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E260D6E91960A8D30029F3A5 /* NotificationsViewController.xib */; };
+		E260D6EF1960A8E10029F3A5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E260D6ED1960A8E10029F3A5 /* SettingsViewController.m */; };
+		E260D6F01960A8E10029F3A5 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E260D6EE1960A8E10029F3A5 /* SettingsViewController.xib */; };
 		E27DB2A11959EB68003239E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27DB2A01959EB68003239E8 /* Foundation.framework */; };
 		E27DB2A31959EB68003239E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27DB2A21959EB68003239E8 /* CoreGraphics.framework */; };
 		E27DB2A51959EB68003239E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27DB2A41959EB68003239E8 /* UIKit.framework */; };
@@ -21,7 +31,6 @@
 		E27DB2C61959EB68003239E8 /* TuesdayLessonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E27DB2C51959EB68003239E8 /* TuesdayLessonTests.m */; };
 		E27DB2D21959EB7B003239E8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27DB2D01959EB7B003239E8 /* MainViewController.m */; };
 		E27DB2D31959EB7B003239E8 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27DB2D11959EB7B003239E8 /* MainViewController.xib */; };
-		E27DB2D9195BCE91003239E8 /* Pods-pintube.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E27DB2D8195BCE91003239E8 /* Pods-pintube.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +44,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E260D6D81960A8650029F3A5 /* NewsFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFeedViewController.h; sourceTree = "<group>"; };
+		E260D6D91960A8650029F3A5 /* NewsFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFeedViewController.m; sourceTree = "<group>"; };
+		E260D6DA1960A8650029F3A5 /* NewsFeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsFeedViewController.xib; sourceTree = "<group>"; };
+		E260D6DD1960A87F0029F3A5 /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		E260D6DE1960A87F0029F3A5 /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
+		E260D6DF1960A87F0029F3A5 /* MessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesViewController.xib; sourceTree = "<group>"; };
+		E260D6E21960A8910029F3A5 /* RequestsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestsViewController.h; sourceTree = "<group>"; };
+		E260D6E31960A8910029F3A5 /* RequestsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestsViewController.m; sourceTree = "<group>"; };
+		E260D6E41960A8910029F3A5 /* RequestsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestsViewController.xib; sourceTree = "<group>"; };
+		E260D6E71960A8D30029F3A5 /* NotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
+		E260D6E81960A8D30029F3A5 /* NotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsViewController.m; sourceTree = "<group>"; };
+		E260D6E91960A8D30029F3A5 /* NotificationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationsViewController.xib; sourceTree = "<group>"; };
+		E260D6EC1960A8E10029F3A5 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		E260D6ED1960A8E10029F3A5 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		E260D6EE1960A8E10029F3A5 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		E27DB29D1959EB68003239E8 /* TuesdayLesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuesdayLesson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27DB2A01959EB68003239E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E27DB2A21959EB68003239E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -54,7 +78,6 @@
 		E27DB2CF1959EB7B003239E8 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		E27DB2D01959EB7B003239E8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E27DB2D11959EB7B003239E8 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		E27DB2D8195BCE91003239E8 /* Pods-pintube.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-pintube.xcconfig"; path = "../../../Downloads/pintube-master/Pods/Pods-pintube.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +112,6 @@
 				E27DB2BF1959EB68003239E8 /* TuesdayLessonTests */,
 				E27DB29F1959EB68003239E8 /* Frameworks */,
 				E27DB29E1959EB68003239E8 /* Products */,
-				E27DB2D8195BCE91003239E8 /* Pods-pintube.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,6 +181,21 @@
 				E27DB2CF1959EB7B003239E8 /* MainViewController.h */,
 				E27DB2D01959EB7B003239E8 /* MainViewController.m */,
 				E27DB2D11959EB7B003239E8 /* MainViewController.xib */,
+				E260D6D81960A8650029F3A5 /* NewsFeedViewController.h */,
+				E260D6D91960A8650029F3A5 /* NewsFeedViewController.m */,
+				E260D6DA1960A8650029F3A5 /* NewsFeedViewController.xib */,
+				E260D6DD1960A87F0029F3A5 /* MessagesViewController.h */,
+				E260D6DE1960A87F0029F3A5 /* MessagesViewController.m */,
+				E260D6DF1960A87F0029F3A5 /* MessagesViewController.xib */,
+				E260D6E21960A8910029F3A5 /* RequestsViewController.h */,
+				E260D6E31960A8910029F3A5 /* RequestsViewController.m */,
+				E260D6E41960A8910029F3A5 /* RequestsViewController.xib */,
+				E260D6E71960A8D30029F3A5 /* NotificationsViewController.h */,
+				E260D6E81960A8D30029F3A5 /* NotificationsViewController.m */,
+				E260D6E91960A8D30029F3A5 /* NotificationsViewController.xib */,
+				E260D6EC1960A8E10029F3A5 /* SettingsViewController.h */,
+				E260D6ED1960A8E10029F3A5 /* SettingsViewController.m */,
+				E260D6EE1960A8E10029F3A5 /* SettingsViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -238,10 +275,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E260D6EB1960A8D30029F3A5 /* NotificationsViewController.xib in Resources */,
+				E260D6E61960A8910029F3A5 /* RequestsViewController.xib in Resources */,
 				E27DB2AB1959EB68003239E8 /* InfoPlist.strings in Resources */,
+				E260D6F01960A8E10029F3A5 /* SettingsViewController.xib in Resources */,
+				E260D6E11960A87F0029F3A5 /* MessagesViewController.xib in Resources */,
 				E27DB2D31959EB7B003239E8 /* MainViewController.xib in Resources */,
-				E27DB2D9195BCE91003239E8 /* Pods-pintube.xcconfig in Resources */,
 				E27DB2B31959EB68003239E8 /* Images.xcassets in Resources */,
+				E260D6DC1960A8650029F3A5 /* NewsFeedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,8 +302,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E27DB2B11959EB68003239E8 /* AppDelegate.m in Sources */,
+				E260D6E01960A87F0029F3A5 /* MessagesViewController.m in Sources */,
+				E260D6E51960A8910029F3A5 /* RequestsViewController.m in Sources */,
+				E260D6EF1960A8E10029F3A5 /* SettingsViewController.m in Sources */,
+				E260D6EA1960A8D30029F3A5 /* NotificationsViewController.m in Sources */,
 				E27DB2D21959EB7B003239E8 /* MainViewController.m in Sources */,
 				E27DB2AD1959EB68003239E8 /* main.m in Sources */,
+				E260D6DB1960A8650029F3A5 /* NewsFeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +505,7 @@
 				E27DB2CB1959EB68003239E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E27DB2CC1959EB68003239E8 /* Build configuration list for PBXNativeTarget "TuesdayLessonTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +514,7 @@
 				E27DB2CE1959EB68003239E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

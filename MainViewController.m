@@ -7,7 +7,11 @@
 //
 
 #import "MainViewController.h"
-//#import <TTTAttributedLabel/TTTAttributedLabel.h>
+#import "NewsFeedViewController.h"
+#import "MessagesViewController.h"
+#import "RequestsViewController.h"
+#import "NotificationsViewController.h"
+#import "SettingsViewController.h"
 
 @interface MainViewController ()
 
@@ -20,62 +24,39 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicatorView;
 
-
-//textfield actions
-- (IBAction)onTap:(id)sender;
-- (IBAction)onEditingBegin:(id)sender;
-
-//login actions
 - (IBAction)onLoginTap:(id)sender;
-
-
-
-
-
-//- (void)willShowKeyboard:(NSNotification *)notification;
-//- (void)willHideKeyboard:(NSNotification *)notification;
+- (IBAction)onTap:(id)sender;
+- (IBAction)onEditingChanged:(id)sender;
 
 @end
 
 @implementation MainViewController
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-  //  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    //if (self) {
-        // Register the methods for the keyboard hide/show events
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willShowKeyboard:) name:UIKeyboardWillShowNotification object:nil];
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willHideKeyboard:) name:UIKeyboardWillHideNotification object:nil];
-    //}
-   // return self;
-//}
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        //Customize intitalization
+    }
+   return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    
+    
     
     self.loginButton.alpha = .5;
-    [self.loginButton setEnabled:YES];
-    [self.indicatorView stopAnimating];
+    [self.loginButton setEnabled:NO];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
     
 }
-
-//- (void)doNothing {
-    
-//}
-
-//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-   // [self.inputFieldView resignFirstResponder];
-
-//}
-
-//- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-   // if (textField) {
-   //     [textField resignFirstResponder];
-   // }
-    //return NO;
-//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -85,44 +66,181 @@
 
 - (IBAction)onLoginTap:(id)sender {
     
-    //[self.view endEditing:YES];
-    [self.indicatorView startAnimating];
-    self.loginButton.alpha = .5;
-    self.loginButton.enabled = NO;
-    //self.userNameField.enabled = NO;
-    //self.pwdField.enabled = NO;
-    self.signUpButton.enabled = NO;
-    self.signUpButton.alpha=.75;
-    
-    //[self.loginButton setBackgroundImage:[UIImage imageNamed:@"logging_in_button"] forState:UIControlStateDisabled];
-    //[self.loginButton setBackgroundImage:[UIImage imageNamed:@"logging_in_button"] forState:UIControlStateNormal];
-    
-    
-}
-
-
-//Motion up
-- (IBAction)onEditingBegin:(id)sender {
-    NSLog(@"Start Editing");
-    self.loginButton.alpha = 1;
-    [self.indicatorView stopAnimating];
-    [UIView animateWithDuration :0.2 animations:^{self.loginView.frame = CGRectMake(self.loginView.frame.origin.x, -50, self.loginView.frame.size.width, self.loginView.frame.size.height);}];
-    
-    [UIView animateWithDuration :0.2 animations:^{self.signUpButton.frame = CGRectMake(self.signUpButton.frame.origin.x, 290, self.signUpButton.frame.size.width, self.signUpButton.frame.size.height);}];
-}
-//Motion down
-- (IBAction)onTap:(id)sender {
-    NSLog(@"End Editing");
-    self.loginButton.alpha = .5;
-    [self.indicatorView stopAnimating];
     [self.view endEditing:YES];
-    [UIView animateWithDuration :0.2 animations:^{self.loginView.frame = CGRectMake(self.loginView.frame.origin.x, 30, self.loginView.frame.size.width, self.loginView.frame.size.height);}];
+    [self.indicatorView startAnimating];
+    self.loginButton.enabled = NO;
+    self.userNameField.enabled = NO;
+    self.pwdField.enabled = NO;
+    self.signUpButton.alpha=.75;
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"logging_in_button"] forState:UIControlStateDisabled];
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"logging_in_button"] forState:UIControlStateNormal];
     
-    [UIView animateWithDuration :0.2 animations:^{self.signUpButton.frame = CGRectMake(self.signUpButton.frame.origin.x, 464, self.signUpButton.frame.size.width, self.signUpButton.frame.size.height);}];
+    [UIView
+     animateWithDuration:1
+     delay:1
+     options:UIViewAnimationOptionCurveLinear
+     animations:^{
+         self.logoView.alpha=0;
+     }
+     completion:^(BOOL finished) {
+         if ([self.pwdField.text isEqualToString:@"password"])
+             [self loginSucess];
+         else
+             [self loginFail];
+     }];
+
+    
+}
+
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing:YES];
+}
+
+- (IBAction)onEditingChanged:(id)sender {
+    if ([self.userNameField.text length] != 0 && [self.pwdField.text length] != 0) {
+        [self.loginButton setEnabled:YES];
+        self.loginButton.alpha = 1;
+    }
+    else {
+        [self.loginButton setEnabled:NO];
+        self.loginButton.alpha = .5;
+    }
+    
 }
 
 
+-(void) loginSucess{
+    
+    
+    //Import the Tab Bar Views
+    UIViewController *newsfeedVC = [[NewsFeedViewController alloc] init];
+    UIViewController *requestsVC = [[RequestsViewController alloc] init];
+    UIViewController *messagesVC = [[MessagesViewController alloc] init];
+    UIViewController *notificationsVC = [[NotificationsViewController alloc] init];
+    UIViewController *settingsVC = [[SettingsViewController alloc] init];
+    
+    
+    //Import the Navigation Bars
+    UINavigationController *newsfeedNC = [[UINavigationController alloc] initWithRootViewController:newsfeedVC];
+    //UINavigationController *requestsNC = [[UINavigationController alloc] initWithRootViewController:requestsVC];
+    //UINavigationController *messagesNC = [[UINavigationController alloc] initWithRootViewController:messagesVC];
+    //UINavigationController *notificationsNC = [[UINavigationController alloc] initWithRootViewController:notificationsVC];
+    //UINavigationController *settingsNC = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    
+    
+    //Tab Bar Titles and Custom Images
+    UIImage *newsFeedImage = [[UIImage imageNamed:@"News_Feed"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    newsfeedVC.tabBarItem.image = newsFeedImage;
+    newsfeedVC.tabBarItem.title = @"News Feed";
+    
+    
+    
+    requestsVC.tabBarItem.title = @"Requests";
+    requestsVC.tabBarItem.image = [UIImage imageNamed:@"Requests"];
+    
+    
+    
+    messagesVC.tabBarItem.title = @"Messages";
+    messagesVC.tabBarItem.image = [UIImage imageNamed:@"tab_messages"];
+    
+    
+    
+    notificationsVC.tabBarItem.title = @"Notifications";
+    notificationsVC.tabBarItem.image = [UIImage imageNamed:@"tab_notifications"];
+    
+    
+    
+    settingsVC.tabBarItem.title = @"Settings";
+    settingsVC.tabBarItem.image = [UIImage imageNamed:@"tab_settings"];
+    
+    
+    
+    // Create the tab bar controller
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[newsfeedNC, requestsVC, messagesVC, notificationsVC, settingsVC];
+    
+    [self presentViewController:tabBarController animated:YES completion:nil];
 
+    
+    
+}
+
+-(void) loginFail{
+    [self.indicatorView stopAnimating];
+    self.loginButton.enabled = YES;
+    self.userNameField.enabled = YES;
+    self.pwdField.enabled = YES;
+    self.signUpButton.alpha =1;
+    self.logoView.alpha =1;
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login_button_disabled"] forState:UIControlStateDisabled];
+    [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login_button_disabled"] forState:UIControlStateNormal];
+
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Incorrect password" message:@"Make sure you typed the right password" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
+    
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    
+    // Get the keyboard height and width from the notification
+    // Size varies depending on OS, language, orientation
+    //    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    //    NSLog(@"Height: %f Width: %f", kbSize.height, kbSize.width);
+    
+    // Get the animation duration and curve from the notification
+    NSNumber *durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration = durationValue.doubleValue;
+    NSNumber *curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey];
+    UIViewAnimationCurve animationCurve = curveValue.intValue;
+    
+    [UIView animateWithDuration:animationDuration
+                          delay:0.0
+                        options:(animationCurve << 16)
+                     animations:^{
+                         CGRect containerFrame = self.loginView.frame;
+                         containerFrame.origin.y -= 40;
+                         self.loginView.frame = containerFrame;
+                         
+                         CGRect labelFrame = self.signUpButton.frame;
+                         labelFrame.origin.y -= 116;
+                         self.signUpButton.frame = labelFrame;
+                     }
+                     completion:nil
+     ];
+    
+}
+
+-(void)keyboardDidHide:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    
+    // Get the keyboard height and width from the notification
+    // Size varies depending on OS, language, orientation
+    //    CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    //    NSLog(@"Height: %f Width: %f", kbSize.height, kbSize.width);
+    
+    // Get the animation duration and curve from the notification
+    NSNumber *durationValue = userInfo[UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration = durationValue.doubleValue;
+    NSNumber *curveValue = userInfo[UIKeyboardAnimationCurveUserInfoKey];
+    UIViewAnimationCurve animationCurve = curveValue.intValue;
+    
+    [UIView animateWithDuration:animationDuration
+                          delay:0.0
+                        options:(animationCurve << 16)
+                     animations:^{
+                         CGRect containerFrame = self.loginView.frame;
+                         containerFrame.origin.y += 40;
+                         self.loginView.frame = containerFrame;
+                         
+                         CGRect labelFrame = self.signUpButton.frame;
+                         labelFrame.origin.y += 116;
+                         self.signUpButton.frame = labelFrame;
+                     } completion:nil ];
+    
+}
 
 
 

@@ -6,15 +6,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
-                <outlet property="indicatorView" destination="lOL-0W-1q0" id="TMv-U4-xQl"/>
-                <outlet property="inputFieldView" destination="GSh-VR-KWb" id="ecl-o2-vd8"/>
-                <outlet property="loginButton" destination="4sT-F7-g1C" id="sA5-vj-jup"/>
-                <outlet property="loginView" destination="YEr-ei-qY2" id="fhP-3y-f7P"/>
-                <outlet property="logoView" destination="kPz-zE-ujm" id="NXl-FM-8Gc"/>
-                <outlet property="pwdField" destination="J6R-JN-Vd5" id="KLE-oe-AuG"/>
-                <outlet property="signUpButton" destination="ydk-Nx-SVc" id="g38-Jq-Z5s"/>
-                <outlet property="userNameField" destination="ioM-95-U8W" id="Jxy-yo-yDh"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="indicatorView" destination="lOL-0W-1q0" id="894-b3-hXy"/>
+                <outlet property="inputFieldView" destination="trk-lw-oN7" id="kmk-v4-OA9"/>
+                <outlet property="loginButton" destination="4sT-F7-g1C" id="PbO-t3-9GL"/>
+                <outlet property="loginView" destination="YEr-ei-qY2" id="uru-36-JNS"/>
+                <outlet property="logoView" destination="B67-qc-hvA" id="aVW-NI-DFm"/>
+                <outlet property="pwdField" destination="J6R-JN-Vd5" id="NFG-Mn-fD7"/>
+                <outlet property="signUpButton" destination="ydk-Nx-SVc" id="cWi-ky-hHE"/>
+                <outlet property="userNameField" destination="ioM-95-U8W" id="fky-ob-s4E"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="rJL-zr-Zld"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -36,7 +36,7 @@
                             <state key="selected" backgroundImage="logging_in_button"/>
                             <state key="highlighted" backgroundImage="login_button_disabled"/>
                             <connections>
-                                <action selector="onLoginTap:" destination="-1" eventType="touchUpInside" id="Fru-tG-E3e"/>
+                                <action selector="onLoginTap:" destination="-1" eventType="touchUpInside" id="Ndq-iy-lly"/>
                             </connections>
                         </button>
                         <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kPz-zE-ujm">
@@ -61,27 +61,25 @@
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email or phone number" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ioM-95-U8W">
                                     <rect key="frame" x="22" y="8" width="281" height="45"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                     <connections>
-                                        <action selector="onEditingBegin:" destination="-1" eventType="editingDidBegin" id="PVK-eU-Q2E"/>
+                                        <action selector="onEditingChanged:" destination="-1" eventType="editingChanged" id="J3f-dd-SDx"/>
                                     </connections>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="J6R-JN-Vd5">
                                     <rect key="frame" x="21" y="52" width="284" height="46"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
                                     <connections>
-                                        <action selector="onEditingBegin:" destination="-1" eventType="editingDidBegin" id="3ih-Qg-61V"/>
+                                        <action selector="onEditingChanged:" destination="-1" eventType="editingChanged" id="jdI-ct-JDk"/>
                                     </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lOL-0W-1q0">
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="lOL-0W-1q0">
                             <rect key="frame" x="270" y="296" width="20" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </activityIndicatorView>
@@ -95,9 +93,6 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="onSignUpBegin:" destination="-1" eventType="touchUpInside" id="fJ2-SC-udf"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ria-d2-iTv">
                     <rect key="frame" x="64" y="504" width="191" height="30"/>
@@ -113,14 +108,12 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
-                <outletCollection property="gestureRecognizers" destination="v9f-kV-5CE" appends="YES" id="THi-fB-hxm"/>
+                <outletCollection property="gestureRecognizers" destination="Bqg-Vx-EJc" appends="YES" id="y2H-lV-bLj"/>
             </connections>
         </view>
-        <tapGestureRecognizer id="gJj-Zu-g1s"/>
-        <tapGestureRecognizer id="SMt-IV-xJN"/>
-        <tapGestureRecognizer id="v9f-kV-5CE">
+        <tapGestureRecognizer id="Bqg-Vx-EJc">
             <connections>
-                <action selector="onTap:" destination="-1" id="Zgh-8A-Ti9"/>
+                <action selector="onTap:" destination="-1" id="6hb-oT-6Ty"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
