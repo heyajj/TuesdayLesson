@@ -12,6 +12,7 @@
 #import "RequestsViewController.h"
 #import "NotificationsViewController.h"
 #import "SettingsViewController.h"
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @interface MainViewController ()
 
@@ -51,7 +52,7 @@
     
     self.loginButton.alpha = .5;
     [self.loginButton setEnabled:NO];
-    
+ 
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -80,7 +81,7 @@
      delay:1
      options:UIViewAnimationOptionCurveLinear
      animations:^{
-         self.logoView.alpha=0;
+         self.loginView.alpha=.5;
      }
      completion:^(BOOL finished) {
          if ([self.pwdField.text isEqualToString:@"password"])
@@ -122,15 +123,25 @@
     
     //Import the Navigation Bars
     UINavigationController *newsfeedNC = [[UINavigationController alloc] initWithRootViewController:newsfeedVC];
+    newsfeedNC.navigationBar.barTintColor = UIColorFromRGB(0x3d5998);
+    newsfeedNC.navigationBar.tintColor = [UIColor whiteColor];
+    NSShadow *shadow = [[NSShadow alloc] init];
+    NSDictionary *titleTextAttributes =
+    @{
+      NSFontAttributeName : [UIFont boldSystemFontOfSize:16],
+      NSForegroundColorAttributeName : [UIColor whiteColor],
+      NSShadowAttributeName : shadow
+      };
+    
+    newsfeedNC.navigationBar.titleTextAttributes = titleTextAttributes;
     //UINavigationController *requestsNC = [[UINavigationController alloc] initWithRootViewController:requestsVC];
-    //UINavigationController *messagesNC = [[UINavigationController alloc] initWithRootViewController:messagesVC];
+ 
     //UINavigationController *notificationsNC = [[UINavigationController alloc] initWithRootViewController:notificationsVC];
     //UINavigationController *settingsNC = [[UINavigationController alloc] initWithRootViewController:settingsVC];
     
     
     //Tab Bar Titles and Custom Images
-    UIImage *newsFeedImage = [[UIImage imageNamed:@"News_Feed"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    newsfeedVC.tabBarItem.image = newsFeedImage;
+    newsfeedVC.tabBarItem.image = [UIImage imageNamed:@"News_Feed"];
     newsfeedVC.tabBarItem.title = @"News Feed";
     
     
@@ -140,18 +151,18 @@
     
     
     
-    messagesVC.tabBarItem.title = @"Messages";
-    messagesVC.tabBarItem.image = [UIImage imageNamed:@"tab_messages"];
+    messagesVC.tabBarItem.title = @"Messenger";
+    messagesVC.tabBarItem.image = [UIImage imageNamed:@"messages"];
     
     
     
     notificationsVC.tabBarItem.title = @"Notifications";
-    notificationsVC.tabBarItem.image = [UIImage imageNamed:@"tab_notifications"];
+    notificationsVC.tabBarItem.image = [UIImage imageNamed:@"Notifications"];
     
     
     
     settingsVC.tabBarItem.title = @"Settings";
-    settingsVC.tabBarItem.image = [UIImage imageNamed:@"tab_settings"];
+    settingsVC.tabBarItem.image = [UIImage imageNamed:@"More"];
     
     
     
@@ -171,7 +182,7 @@
     self.userNameField.enabled = YES;
     self.pwdField.enabled = YES;
     self.signUpButton.alpha =1;
-    self.logoView.alpha =1;
+    self.loginView.alpha =1;
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login_button_disabled"] forState:UIControlStateDisabled];
     [self.loginButton setBackgroundImage:[UIImage imageNamed:@"login_button_disabled"] forState:UIControlStateNormal];
 
@@ -200,11 +211,11 @@
                         options:(animationCurve << 16)
                      animations:^{
                          CGRect containerFrame = self.loginView.frame;
-                         containerFrame.origin.y -= 40;
+                         containerFrame.origin.y -= 60;
                          self.loginView.frame = containerFrame;
                          
                          CGRect labelFrame = self.signUpButton.frame;
-                         labelFrame.origin.y -= 116;
+                         labelFrame.origin.y -= 154;
                          self.signUpButton.frame = labelFrame;
                      }
                      completion:nil
@@ -232,16 +243,15 @@
                         options:(animationCurve << 16)
                      animations:^{
                          CGRect containerFrame = self.loginView.frame;
-                         containerFrame.origin.y += 40;
+                         containerFrame.origin.y += 60;
                          self.loginView.frame = containerFrame;
                          
                          CGRect labelFrame = self.signUpButton.frame;
-                         labelFrame.origin.y += 116;
+                         labelFrame.origin.y += 154;
                          self.signUpButton.frame = labelFrame;
                      } completion:nil ];
     
 }
-
 
 
 - (UIStatusBarStyle)preferredStatusBarStyle
