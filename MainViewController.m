@@ -58,6 +58,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
     
+    //changes status bar
     [self setNeedsStatusBarAppearanceUpdate];
     
 }
@@ -218,6 +219,7 @@
     self.loginButton.enabled = YES;
     self.userNameField.enabled = YES;
     self.pwdField.enabled = YES;
+    self.pwdField.text = @"";
     self.signUpButton.alpha =1;
     self.helpButton.alpha=1;
     self.loginView.alpha =1;
